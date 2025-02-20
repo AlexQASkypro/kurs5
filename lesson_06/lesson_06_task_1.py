@@ -25,3 +25,4 @@ try:
 finally:
     # Закрытие браузера
     driver.quit()
+    
