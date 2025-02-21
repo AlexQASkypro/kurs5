@@ -1,32 +1,27 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Инициализация драйвера с использованием Service
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))  # Закрыты все скобки
+# Инициализация драйвера
+driver = webdriver.Chrome()
 
 try:
-    # Переход на страницу
+    # 1. Переход на страницу
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
     
-    # Ожидание загрузки всех картинок
-    WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.ID, "image-container"))
+    # 2. Ожидание завершения загрузки
+    WebDriverWait(driver, 10).until(
+        EC.text_to_be_present_in_element((By.CSS_SELECTOR, "#text"), "Done!")
     )
     
-    # Получение всех изображений
+    # 3. Получение 3-й картинки
     images = driver.find_elements(By.CSS_SELECTOR, "#image-container img")
+    third_image_src = images[2].get_attribute("src")
     
-    # Проверка, что изображений достаточно
-    if len(images) >= 3:
-        third_image = images[2]  # Индексация начинается с 0
-        print(third_image.get_attribute("src"))
-    else:
-        print("Третье изображение не найдено.")
-    
+    # 4. Вывод результата
+    print("SRC третьей картинки:", third_image_src)
+
 finally:
     # Закрытие браузера
     driver.quit()
