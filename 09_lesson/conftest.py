@@ -1,7 +1,6 @@
 import pytest
 from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Подключение к базе данных
 DATABASE_URL = "postgresql://myuser:mypassword@localhost:5432/mydatabase"
