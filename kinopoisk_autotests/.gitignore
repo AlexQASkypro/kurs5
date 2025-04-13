@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+allure-results/
+.pytest_cache/
+kp_session.pkl
+.env
