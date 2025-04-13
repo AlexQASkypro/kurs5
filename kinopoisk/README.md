@@ -10,48 +10,9 @@
 - **allure-pytest** - плагин для pytest, который создает детализированные отчеты о тестах в формате Allure, с данными о результатах тестов, скриншотами ошибок и другими метаданными.
 - **requests** - библиотека для выполнения HTTP-запросов. Используется для тестирования API, позволяет отправлять запросы к серверу и получать ответы.
 
-## Шаги
-1. Склонировать проект:
-   ```bash
-   git clone https://github.com/Nikulya98/kinopoisk-autotests.git
-   ```
-2. Перейдите в директорию проекта: 'cd kinopoisk-autotests'
-   ```bash
-   cd kinopoisk-autotests
-   ```
-3. Установить зависимости из файла requirements.txt: 
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Запустить тесты в терминале:
-   - **Все тесты:** 
-   ```bash
-   pytest --alluredir=results
-   ```
-   - **Только UI тесты:**
-   ```bash
-   pytest -s ui --alluredir=results
-   ```  
-   - **Только API тесты:**
-   ```bash
-   pytest -s api --alluredir=results
-   ```   
-5. Сгенерировать отчет Allure из папки results:
-   ```bash
-   allure generate results --clean -o allure-report
-   ```   
-6. Открыть отчет Allure:
-   ```bash
-   allure open allure-report
-   ``` 
-7. Альтернативно, можно использовать команду serve, чтобы автоматически сгенерировать и открыть отчет:
-   ```bash
-   allure serve results
-   ``` 
-
 ### Примечания
 
-1. Убедитесь, что у вас установлен Allure. Если его нет, вы можете установить его, следуя [официальной инструкции Allure](https://allure.qatools.ru/).
+1. Убедитесь, что установлен Allure. Если его нет, вы можете установить его, следуя [официальной инструкции Allure](https://allure.qatools.ru/).
 2. Для работы с **Selenium** потребуется драйвер для браузера:
    - Для Firefox используйте **GeckoDriver**: [GeckoDriver Releases](https://github.com/mozilla/geckodriver/releases)
    - Для Chrome используйте **ChromeDriver**: [ChromeDriver](https://sites.google.com/chromium.org/driver/)
